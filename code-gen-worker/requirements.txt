@@ -1,0 +1,6 @@
+celery
+redis
+psycopg2-binary # To update status in MCP DB
+sqlmodel
+docker       # The Docker Python SDK
+# Add AI libraries later: openai, langchain, etc.

@@ -1,0 +1,23 @@
+# .gitignore
+
+# Environment variables
+.env
+
+# Python artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+pip-wheel-metadata/
+
+# Docker artifacts
+docker-compose.override.yml
+build/
+dist/
+
+# IDE files
+.idea/
+.vscode/

@@ -1,0 +1,31 @@
+code-gen-worker-1  | /usr/local/lib/python3.11/site-packages/celery/platforms.py:841: SecurityWarning: You're running the worker with superuser privileges: this is
+code-gen-worker-1  | absolutely not recommended!
+code-gen-worker-1  |
+code-gen-worker-1  | Please specify a different user using the --uid option.
+code-gen-worker-1  |
+code-gen-worker-1  | User information: uid=0 euid=0 gid=0 egid=0
+code-gen-worker-1  |
+code-gen-worker-1  |   warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+code-gen-worker-1  |
+code-gen-worker-1  |  -------------- celery@1960d297dabb v5.5.3 (immunity)
+code-gen-worker-1  | --- ***** -----
+code-gen-worker-1  | -- ******* ---- Linux-6.8.0-x86_64-with-glibc2.41 2025-09-01 10:46:36
+code-gen-worker-1  | - *** --- * ---
+code-gen-worker-1  | - ** ---------- [config]
+code-gen-worker-1  | - ** ---------- .> app:         tasks:0x7fb4439531d0
+code-gen-worker-1  | - ** ---------- .> transport:   redis://redis:6379/0
+code-gen-worker-1  | - ** ---------- .> results:     redis://redis:6379/0
+code-gen-worker-1  | - *** --- * --- .> concurrency: 4 (prefork)
+code-gen-worker-1  | -- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+code-gen-worker-1  | --- ***** -----
+code-gen-worker-1  |  -------------- [queues]
+code-gen-worker-1  |                 .> celery           exchange=celery(direct) key=celery
+code-gen-worker-1  |
+code-gen-worker-1  |
+code-gen-worker-1  | [tasks]
+code-gen-worker-1  |   . generate_app_task
+code-gen-worker-1  |
+code-gen-worker-1  | [2025-09-01 10:46:38,010: INFO/MainProcess] Connected to redis://redis:6379/0
+code-gen-worker-1  | [2025-09-01 10:46:38,019: INFO/MainProcess] mingle: searching for neighbors
+code-gen-worker-1  | [2025-09-01 10:46:39,040: INFO/MainProcess] mingle: all alone
+code-gen-worker-1  | [2025-09-01 10:46:39,066: INFO/MainProcess] celery@1960d297dabb ready.

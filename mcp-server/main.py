@@ -7,6 +7,7 @@ from uuid import UUID, uuid4
 
 from fastapi import FastAPI, Depends, HTTPException
 from sqlmodel import Field, Session, SQLModel, create_engine, select
+from celery_client import celery_app
 
 
 # Database Connection
@@ -69,11 +70,19 @@ app = FastAPI(
 
 @app.post("/apps/create", response_model=ProjectRead)
 def create_project(project_create: ProjectCreate, session: Session = Depends(get_session)):
-    # In Pydantic v2, `from_orm` is deprecated. Use `model_validate` instead.
+    # Create the project record in the database
     db_project = Project.model_validate(project_create)
     session.add(db_project)
     session.commit()
     session.refresh(db_project)
+
+    # Dispatch the generation task to the worker
+    # The task name must match the one defined in the worker service
+    celery_app.send_task(
+        "generate_app_task",
+        args=[db_project.id, db_project.prompt]
+    )
+
     return db_project
 
 @app.get("/apps/status/{task_id}", response_model=ProjectRead)
